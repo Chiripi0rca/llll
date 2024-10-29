@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="style.css"> <!-- Si tienes estilos -->
+    <link rel="stylesheet" href="style.css"> 
 </head>
-<body>
+<body class="Background-Login"><!--se cree esta clase para no tener el mismo back en los html -->
     <div class="login-container">
         <h1>Iniciar Sesión</h1>
         <input type="text" id="user" placeholder="Nombre de usuario" required>
@@ -14,7 +14,6 @@
         <button onclick="InicioDeSesion()">Ingresar</button>
         <p id="error-msg" class="error"></p>
     </div>
-
-    <script src="Codigo.js"></script>
+    <script src="codigo.js"></script>
 </body>
 </html>
