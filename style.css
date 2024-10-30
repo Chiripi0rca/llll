@@ -248,6 +248,7 @@ input[type="email"] {
     color: #e50914;
     text-decoration: none !important; /* Asegura que no haya subrayado */
 }
+/*Login*/
 /* Contenedor del login con transparencia */
 .login-container {
     background-color: rgba(0, 0, 0, 0.75); /* Fondo oscuro con transparencia */
@@ -275,7 +276,7 @@ input[type="email"] {
 input[type="text"],
 input[type="password"] {
     display: block;
-    width: 100%;
+    width: 90%;
     padding: 12px;
     margin: 10px 0;
     border: none;
@@ -421,8 +422,8 @@ input[type="password"] {
         gap: 10px; /* Añade un poco de espacio entre elementos */
     }
 }
-    @media (max-width: 480px) {
-     .login-container {
-        padding: 20px; /* Reduce el padding para pantallas pequeñas */
-     }
+@media (max-width: 600px) {
+    .login-container {
+        margin:20px; /* Añade margen en los lados para evitar que se acerque demasiado al borde */
+    }
 }
