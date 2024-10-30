@@ -36,9 +36,14 @@ function registrarUsuario() {
   const password = document.getElementById("password").value;
 
   if (username && password) {
-      localStorage.setItem(username, password); // Guarda el usuario y la contraseña
-      alert("Cuenta creada con éxito");
-      window.location.href = "Login.html"; // Redirige a la página de inicio de sesión
+        // Guarda el usuario y la contraseña por separado
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
+
+        alert("Cuenta creada con éxito");
+        
+        // Redirige a la página de inicio de sesión
+        window.location.href = "Login.html";
   } else {
       alert("Por favor, completa todos los campos");
   }
