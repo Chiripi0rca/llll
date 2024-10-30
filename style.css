@@ -425,6 +425,6 @@ input[type="password"] {
 @media (max-width: 600px) {
     .login-container {
         margin-left: 0; /* Sin margen a la izquierda */
-        margin-right: 30px; /* Margen solo a la derecha */
+        margin-right: 40px; /* Margen solo a la derecha */
     }
 }
