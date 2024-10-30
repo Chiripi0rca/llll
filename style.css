@@ -25,7 +25,7 @@ header {
 
 h1 {
     margin: 0;
-    font-family: 'Bebas Neue';
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     color: #e50914;
 }
@@ -67,14 +67,14 @@ main{
 }
 h2{
     padding-top: 200px;
-    font-family: 'Bebas Neue';
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     color: #ffffff;
     text-align: center;
 }
 p{
     margin: 20px 0;
-    font-family: 'Bebas Neue';
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     color: #ffffff;
     text-align: center;
@@ -162,7 +162,7 @@ input[type="email"] {
 
 
 .Razones h3 {
-    font-family: 'Bebas Neue';
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 1.5rem;
     color: #ffffff;
     text-align: left;
@@ -266,7 +266,7 @@ input[type="email"] {
 
 .Titulo {
     margin: 0;
-    font-family: 'Bebas Neue';
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     color: #e50914;
     text-decoration: none !important; /* Asegura que no haya subrayado */
@@ -370,7 +370,7 @@ input[type="password"] {
 }
 /*Configuracion para el mensaje de error*/
 .error {
-    font-family: 'Bebas Neue';
+    font-family: 'Bebas Neue', sans-serif;
     color: red;
     margin-top: 10px;
 }
