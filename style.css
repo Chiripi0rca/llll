@@ -443,6 +443,6 @@ input[type="password"] {
 /* Tamaño más pequeño en pantallas pequeñas */
 @media (max-width: 600px) {
     .ButtonPageInicial .Titulo img {
-        width: 100px; /* Ajusta el tamaño para dispositivos móviles */
+        width: 150px; /* Ajusta el tamaño para dispositivos móviles */
     }
 }
