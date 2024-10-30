@@ -7,26 +7,63 @@ function RedigirInicioDeSesion(){
 function RedigirPaginaInicial(){
 window.locaation.href ="index.html";
 }
-//Funcion para Iniciar sesion
-//declaramos variables
-   const User = "ri0npl4y";
-   const Password = "12345";
-   function InicioDeSesion(){
-       const username = document.getElementById("user").value;
-       const passwordUser = document.getElementById("password").value;
-       const errorMsg = document.getElementById('error-msg');
-    if(username === User && passwordUser == Password){
-      //si es igual se le rederige a la pagina principal
-      errorMsg.textContent = "";//borramos mensaje de error
+
+//funcion para recordar el usuario en la pagina inicial
+function guardarEmail() {
+  const email = document.getElementById("email-input").value;
+  localStorage.setItem("userEmail", email); // Guarda el email en Local Storage
+  if (email.trim() === "") {
+    alert("Por favor, ingresa tu email antes de continuar.");
+} else {
+    localStorage.setItem("userEmail", email); // Guarda el email en Local Storage
+    window.location.href = "signup.html"; // Redirige a la página de registro
+}
+}
+
+
+// Al cargar la página de registro, recupera el nombre de usuario desde Local Storage
+document.addEventListener("DOMContentLoaded", () => {
+  const user = localStorage.getItem("user");
+  const userInput = document.getElementById("user");
+  if (user && userInput) {
+      userInput.value = user; // Muestra el nombre de usuario en el campo
+  }
+});
+
+// Función para registrar un usuario
+function registrarUsuario() {
+  const username = document.getElementById("user").value;
+  const password = document.getElementById("password").value;
+
+  if (username && password) {
+      localStorage.setItem(username, password); // Guarda el usuario y la contraseña
+      alert("Cuenta creada con éxito");
+      window.location.href = "login.html"; // Redirige a la página de inicio de sesión
+      alert('Cuenta creada con éxito');
+  } else {
+      alert("Por favor, completa todos los campos");
+  }
+}
+
+// Función para iniciar sesión
+function iniciarSesion() {
+  const username = document.getElementById("user").value;
+  const password = document.getElementById("password").value;
+  const errorMsg = document.getElementById("error-msg");
+
+  const storedPassword = localStorage.getItem(username); // Recupera la contraseña
+
+  if (storedPassword === password) {
+      alert("Inicio de sesión exitoso");
+      errorMsg.textContent = ""; // Limpia el mensaje de error
       alert("inicio de sesion existoso. redirigiendo a la pagina mas vergas");
       window.location.href = "Principal.html";
-    }
-    else {
-      errorMsg.textContent = "Nombre de usuario o contraseña incorrectos.";
-    }
-   }
+  } else {
+      errorMsg.textContent = "Nombre de usuario o contraseña incorrectos";
+  }
+}
 
-
+//funcion para cuando le piquen al boton de suscribirse los reegrese a la pagina princiapl donde dice comenzar
    document.addEventListener("DOMContentLoaded", () => {
     if (window.location.hash === "#email") {
         const emailInput = document.getElementById("email-input");

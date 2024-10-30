@@ -105,7 +105,7 @@ form {
    
    
 }
-input[type="email"] {
+input[type="usersign"] {
     padding: 10px; /* Espaciado interno */
     border: 2px solid #ccc; /* Bordes de color gris claro */
     border-radius: 5px; /* Bordes redondeados */
@@ -368,7 +368,7 @@ input[type="password"] {
 
 
 /* Estilo para pantallas pequeñas */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     header {
         flex-direction: row; /* Coloca el título y el botón en columnas */
         align-items: flex-start; /* Alinea el contenido a la izquierda */
@@ -433,16 +433,13 @@ input[type="password"] {
     }
 }
 /*esto es para que el cuadro de login no se pegue a las paredes*/
-@media (max-width: 600px) {
     .login-container {
         margin-left: 0; /* Sin margen a la izquierda */
         margin-right: 40px; /* Margen solo a la derecha */
     }
-}
+
 
 /* Tamaño más pequeño en pantallas pequeñas */
-@media (max-width: 600px) {
     .ButtonPageInicial .Titulo img {
         width: 150px; /* Ajusta el tamaño para dispositivos móviles */
     }
-}
