@@ -23,11 +23,9 @@ header {
 }
 
 
-h1 {
-    margin: 0;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    color: #e50914;
+.Logo img {
+    width: 200px; /* Ajusta el tamaño según tus necesidades */
+    height: auto;
 }
 
 
