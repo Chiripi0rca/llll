@@ -424,9 +424,17 @@ input[type="password"] {
         gap: 10px; /* Añade un poco de espacio entre elementos */
     }
 }
+/*esto es para que el cuadro de login no se pegue a las paredes*/
 @media (max-width: 600px) {
     .login-container {
         margin-left: 0; /* Sin margen a la izquierda */
         margin-right: 40px; /* Margen solo a la derecha */
+    }
+}
+
+/* Tamaño más pequeño en pantallas pequeñas */
+@media (max-width: 600px) {
+    .ButtonPageInicial .Titulo img {
+        width: 80px; /* Ajusta el tamaño para dispositivos móviles */
     }
 }
