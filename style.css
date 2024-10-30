@@ -105,7 +105,7 @@ form {
    
    
 }
-input[type="usersign"] {
+input[type="email"] {
     padding: 10px; /* Espaciado interno */
     border: 2px solid #ccc; /* Bordes de color gris claro */
     border-radius: 5px; /* Bordes redondeados */
