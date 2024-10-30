@@ -237,6 +237,10 @@ input[type="email"] {
     top: 20px;
     left: 20px;
 }
+.ButtonPageInicial .Titulo img {
+    width: 200px; /* Ajusta el tamaño según tus necesidades */
+    height: auto;
+}
 
 
 .Titulo {
