@@ -38,8 +38,7 @@ function registrarUsuario() {
   if (username && password) {
       localStorage.setItem(username, password); // Guarda el usuario y la contraseña
       alert("Cuenta creada con éxito");
-      window.location.href = "login.html"; // Redirige a la página de inicio de sesión
-      alert('Cuenta creada con éxito');
+      window.location.href = "Login.html"; // Redirige a la página de inicio de sesión
   } else {
       alert("Por favor, completa todos los campos");
   }
@@ -54,7 +53,6 @@ function iniciarSesion() {
   const storedPassword = localStorage.getItem(username); // Recupera la contraseña
 
   if (storedPassword === password) {
-      alert("Inicio de sesión exitoso");
       errorMsg.textContent = ""; // Limpia el mensaje de error
       alert("inicio de sesion existoso. redirigiendo a la pagina mas vergas");
       window.location.href = "Principal.html";
