@@ -245,8 +245,9 @@ input[type="email"] {
     left: 20px;
 }
 .ButtonPageInicial .Titulo img {
-    width: 200px; /* Ajusta el tamaño según tus necesidades */
+    width: 150px; /* Ajusta el tamaño según tus necesidades */
     height: auto;
+    margin-bottom: 20px;
 }
 
 
@@ -442,6 +443,6 @@ input[type="password"] {
 /* Tamaño más pequeño en pantallas pequeñas */
 @media (max-width: 600px) {
     .ButtonPageInicial .Titulo img {
-        width: 150px; /* Ajusta el tamaño para dispositivos móviles */
+        width: 100px; /* Ajusta el tamaño para dispositivos móviles */
     }
 }
