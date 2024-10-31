@@ -30,40 +30,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Función para registrar un usuario
 function registrarUsuario() {
-  const username = document.getElementById("signup-user").value;
-  const password = document.getElementById("signup-password").value;
+    const usuario = document.getElementById("signup-user").value;
+    const password = document.getElementById("signup-password").value;
 
-  if (username && password) {
-        // Guarda el usuario y la contraseña por separado
-        localStorage.setItem("username", username);
-        localStorage.setItem("password", password);
+    if (!usuario || !password) {
+        document.getElementById("error-msg").innerText = "Por favor, ingresa un usuario y una contraseña.";
+        return;
+    }
 
-        alert("Cuenta creada con éxito");
-        
-        // Redirige a la página de inicio de sesión
-        window.location.href = "Login.html";
-  } else {
-      alert("Por favor, completa todos los campos");
-  }
+    // Guardar el usuario en Local Storage
+    const usuariosRegistrados = JSON.parse(localStorage.getItem("usuarios")) || [];
+    
+    // Verificar si el usuario ya existe
+    if (usuariosRegistrados.some(u => u.usuario === usuario)) {
+        document.getElementById("error-msg").innerText = "El usuario ya existe.";
+        return;
+    }
+
+    // Agregar el nuevo usuario
+    usuariosRegistrados.push({ usuario, password });
+    localStorage.setItem("usuarios", JSON.stringify(usuariosRegistrados));
+    alert("Usuario registrado exitosamente.");
 }
 
-// Función para iniciar sesión
 function iniciarSesion() {
-  const username = document.getElementById("login-user").value;
-  const password = document.getElementById("login-password").value;
-  const errorMsg = document.getElementById("error-msg");
+    const usuario = document.getElementById("login-user").value;
+    const password = document.getElementById("login-password").value;
 
-  const storedPassword = localStorage.getItem(username); // Recupera la contraseña
+    // Recuperar los usuarios de Local Storage
+    const usuariosRegistrados = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-  if (storedPassword === password) {
-      errorMsg.textContent = ""; // Limpia el mensaje de error
-      alert("inicio de sesion existoso. redirigiendo a la pagina mas vergas");
-      window.location.href = "Principal.html";
-  } else {
-      errorMsg.textContent = "Nombre de usuario o contraseña incorrectos";
-  }
+    // Buscar el usuario registrado
+    const encontrado = usuariosRegistrados.find(
+        (u) => u.usuario === usuario && u.password === password
+    );
+
+    if (!encontrado) {
+        document.getElementById("error-msg").innerText = "Usuario o contraseña incorrectos.";
+    } else {
+        alert("Inicio de sesión exitoso.");
+        // Aquí puedes redirigir a otra página o realizar otra acción
+    }
 }
-
 //funcion para cuando le piquen al boton de suscribirse los reegrese a la pagina princiapl donde dice comenzar
    document.addEventListener("DOMContentLoaded", () => {
     if (window.location.hash === "#email") {
