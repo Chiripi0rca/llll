@@ -8,35 +8,35 @@ function RedigirPaginaInicial(){
 window.locaation.href ="index.html";
 }
 
-// Función para recordar el email en la página inicial
-function guardarEmail() {
-    const email = document.getElementById("email-input").value; // Captura el email del input
-    if (email.trim() === "") {
-        alert("Por favor, ingresa tu email antes de continuar."); // Mensaje de alerta si está vacío
+// Función para recordar el usuario en la página inicial
+function guardarUsuario() {
+    const user = document.getElementById("email-input").value; // Captura el email del input
+    if (user.trim() === "") {
+        alert("Por favor, ingresa tu usuario antes de continuar."); // Mensaje de alerta si está vacío
     } else {
-        localStorage.setItem("userEmail", email); // Guarda el email en Local Storage
+        localStorage.setItem("user", user); // Guarda el usuario en Local Storage
         window.location.href = "signup.html"; // Redirige a la página de registro
     }
 }
 
-// Al cargar la página de registro, recupera el email desde Local Storage
+// Al cargar la página de registro, recupera el nombre de usuario desde Local Storage
 document.addEventListener("DOMContentLoaded", () => {
-    const userEmail = localStorage.getItem("userEmail"); // Obtiene el email guardado
+    const user = localStorage.getItem("user"); // Obtiene el usuario guardado
     const emailInput = document.getElementById("email-input"); // Captura el input por ID
-    if (userEmail && emailInput) {
-        emailInput.value = userEmail; // Muestra el email en el campo de entrada
+    if (user && emailInput) {
+        emailInput.value = user; // Muestra el usuario en el campo de entrada
     }
 });
 
 // Función para registrar un usuario
 function registrarUsuario() {
-  const username = document.getElementById("user-sign").value;
-  const password = document.getElementById("password-sign").value;
+  const username = document.getElementById("signup-user").value;
+  const password = document.getElementById("signup-password").value;
 
   if (username && password) {
         // Guarda el usuario y la contraseña por separado
-        localStorage.setItem("user-sign", username);
-        localStorage.setItem("password-sign", password);
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
 
         alert("Cuenta creada con éxito");
         
@@ -49,8 +49,8 @@ function registrarUsuario() {
 
 // Función para iniciar sesión
 function iniciarSesion() {
-  const username = document.getElementById("user-login").value;
-  const password = document.getElementById("password-login").value;
+  const username = document.getElementById("login-user").value;
+  const password = document.getElementById("login-password").value;
   const errorMsg = document.getElementById("error-msg");
 
   const storedPassword = localStorage.getItem(username); // Recupera la contraseña
