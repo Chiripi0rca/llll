@@ -22,9 +22,9 @@ function guardarUsuario() {
 // Al cargar la página de registro, recupera el nombre de usuario desde Local Storage
 document.addEventListener("DOMContentLoaded", () => {
     const user = localStorage.getItem("user"); // Obtiene el usuario guardado
-    const emailInput = document.getElementById("email-input"); // Captura el input por ID
-    if (user && emailInput) {
-        emailInput.value = user; // Muestra el usuario en el campo de entrada
+    const signupUserInput = document.getElementById("signup-user"); // Captura el input por ID
+    if (user && signupUserInput) {
+        signupUserInput.value = user; // Muestra el usuario en el campo de entrada
     }
 });
 
@@ -53,7 +53,7 @@ function iniciarSesion() {
 
     if (storedPassword && storedPassword === password) {
         errorMsg.textContent = ""; // Limpia el mensaje de error
-        alert("Inicio de sesión exitoso. Redirigiendo a la página principal.");
+        alert("Inicio de sesión exitoso. Redirigiendo a la página mas perrona.");
         window.location.href = "Principal.html";
     } else {
         errorMsg.textContent = "Nombre de usuario o contraseña incorrectos";
