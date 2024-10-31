@@ -11,23 +11,25 @@ window.locaation.href ="index.html";
 // Función para guardar usuario y redirigir
 function guardarUsuario() {
     const user = document.getElementById("email-input").value; // Captura el email del input
+    console.log("Usuario ingresado:", user); // Muestra el usuario ingresado en la consola
     if (user.trim() === "") {
         alert("Por favor, ingresa tu usuario antes de continuar."); // Mensaje de alerta si está vacío
     } else {
         localStorage.setItem("user", user); // Guarda el usuario en Local Storage
+        console.log("Usuario guardado en Local Storage"); // Mensaje de confirmación
         window.location.href = "signup.html"; // Redirige a la página de registro
     }
 }
 
+
 // Al cargar la página de registro, recupera el nombre de usuario desde Local Storage
 document.addEventListener("DOMContentLoaded", () => {
-    const user = localStorage.getItem("user"); // Obtiene el usuario guardado
-    const signupUserInput = document.getElementById("signup-user"); // Captura el input por ID
+    const user = localStorage.getItem("user");
+    const signupUserInput = document.getElementById("signup-user");
     if (user && signupUserInput) {
         signupUserInput.value = user; // Muestra el usuario en el campo de entrada
     }
 });
-
 // Función para registrar un usuario
 function registrarUsuario() {
     const username = document.getElementById("signup-user").value;
