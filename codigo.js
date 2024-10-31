@@ -13,7 +13,7 @@ function guardarUsuario() {
     const user = document.getElementById("email-input").value; // Captura el email del input
     console.log("Usuario ingresado:", user); // Muestra el usuario ingresado en la consola
     if (user.trim() === "") {
-        alert("Por favor, ingresa tu usuario antes de continuar."); // Mensaje de alerta si está vacío
+        alert("Por favor, ingresa un usuario antes de continuar."); // Mensaje de alerta si está vacío
     } else {
         localStorage.setItem("user", user); // Guarda el usuario en Local Storage
         console.log("Usuario guardado en Local Storage"); // Mensaje de confirmación
