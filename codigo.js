@@ -8,7 +8,7 @@ function RedigirPaginaInicial(){
 window.locaation.href ="index.html";
 }
 
-// Función para recordar el usuario en la página inicial
+// Función para guardar usuario y redirigir
 function guardarUsuario() {
     const user = document.getElementById("email-input").value; // Captura el email del input
     if (user.trim() === "") {
@@ -30,46 +30,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Función para registrar un usuario
 function registrarUsuario() {
-    const usuario = document.getElementById("signup-user").value;
+    const username = document.getElementById("signup-user").value;
     const password = document.getElementById("signup-password").value;
 
-    if (!usuario || !password) {
-        document.getElementById("error-msg").innerText = "Por favor, ingresa un usuario y una contraseña.";
-        return;
+    if (username && password) {
+        // Guarda el usuario y la contraseña por separado
+        localStorage.setItem(username, password); // Asegúrate de usar el username como clave
+        alert("Cuenta creada con éxito");
+        window.location.href = "Login.html";
+    } else {
+        alert("Por favor, completa todos los campos");
     }
-
-    // Guardar el usuario en Local Storage
-    const usuariosRegistrados = JSON.parse(localStorage.getItem("usuarios")) || [];
-    
-    // Verificar si el usuario ya existe
-    if (usuariosRegistrados.some(u => u.usuario === usuario)) {
-        document.getElementById("error-msg").innerText = "El usuario ya existe.";
-        return;
-    }
-
-    // Agregar el nuevo usuario
-    usuariosRegistrados.push({ usuario, password });
-    localStorage.setItem("usuarios", JSON.stringify(usuariosRegistrados));
-    alert("Usuario registrado exitosamente.");
 }
 
+// Función para iniciar sesión
 function iniciarSesion() {
-    const usuario = document.getElementById("login-user").value;
+    const username = document.getElementById("login-user").value;
     const password = document.getElementById("login-password").value;
+    const errorMsg = document.getElementById("error-msg");
 
-    // Recuperar los usuarios de Local Storage
-    const usuariosRegistrados = JSON.parse(localStorage.getItem("usuarios")) || [];
+    const storedPassword = localStorage.getItem(username); // Recupera la contraseña
 
-    // Buscar el usuario registrado
-    const encontrado = usuariosRegistrados.find(
-        (u) => u.usuario === usuario && u.password === password
-    );
-
-    if (!encontrado) {
-        document.getElementById("error-msg").innerText = "Usuario o contraseña incorrectos.";
+    if (storedPassword && storedPassword === password) {
+        errorMsg.textContent = ""; // Limpia el mensaje de error
+        alert("Inicio de sesión exitoso. Redirigiendo a la página principal.");
+        window.location.href = "Principal.html";
     } else {
-        alert("Inicio de sesión exitoso.");
-        // Aquí puedes redirigir a otra página o realizar otra acción
+        errorMsg.textContent = "Nombre de usuario o contraseña incorrectos";
     }
 }
 //funcion para cuando le piquen al boton de suscribirse los reegrese a la pagina princiapl donde dice comenzar
