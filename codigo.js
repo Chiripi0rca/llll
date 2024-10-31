@@ -122,6 +122,9 @@ function actualizarContrasena() {
     } else {
         localStorage.setItem(usuario, nuevaContrasena); // Actualiza la contraseña
         msg.textContent = "Tu contraseña ha sido restablecida con éxito.";
+        setTimeout(() => { //esto hace que esperes un tiempo para que puedas ser dirirgido al login
+            window.location.href = "Login.html"; 
+        }, 2000); // Retraso de 2 segundos
     }
 }
 
