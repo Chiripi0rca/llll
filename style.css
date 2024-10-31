@@ -358,7 +358,8 @@ input[type="password"] {
     text-decoration: underline;
 }
 /*Configuracion para el mensaje de error*/
-.error {
+.error,
+#msg {
     font-family: 'Bebas Neue', sans-serif;
     color: red;
     margin-top: 10px;

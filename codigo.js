@@ -16,7 +16,6 @@ function guardarUsuario() {
         alert("Por favor, ingresa un usuario antes de continuar."); // Mensaje de alerta si está vacío
     } else {
         localStorage.setItem("user", user); // Guarda el usuario en Local Storage
-        console.log("Usuario guardado en Local Storage"); // Mensaje de confirmación
         window.location.href = "signup.html"; // Redirige a la página de registro
     }
 }
@@ -56,7 +55,7 @@ function iniciarSesion() {
     if (storedPassword && storedPassword === password) {
         errorMsg.textContent = ""; // Limpia el mensaje de error
         alert("Inicio de sesión exitoso. Redirigiendo a la página mas perrona.");
-        window.location.href = "Principal.html";
+        window.location.href = "Main.html";
     } else {
         errorMsg.textContent = "Nombre de usuario o contraseña incorrectos";
     }
@@ -71,8 +70,6 @@ function iniciarSesion() {
         }
     }
 });
-
-
     //bloque para las preguntas frecuentes
     document.querySelectorAll('.faq-question').forEach((button) => {
       button.addEventListener('click', () => {
@@ -92,4 +89,39 @@ function iniciarSesion() {
           button.classList.toggle('active');
       });
   });
+  function enviarUsuario() {
+    const usuario = document.getElementById("reset-usuario").value;
+    const msg = document.getElementById("msg");
+
+    // Verificar si el usuario está registrado
+    const storedPassword = localStorage.getItem(usuario); // Recupera la contraseña asociada al usuario
+
+    if (usuario.trim() === "") {
+        msg.textContent = "Por favor, ingresa un nombre de usuario.";
+    } else if (!storedPassword) {
+        msg.textContent = "No hay ninguna cuenta registrada con ese usuario.";
+    } else {
+        // Almacenar el usuario en localStorage y redirigir a la página de nueva contraseña
+        localStorage.setItem("usuarioParaReset", usuario);
+        window.location.href = "NewPassword.html"; // Redirige a la página de nueva contraseña
+    }
+}
+
+function actualizarContrasena() {
+    const usuario = localStorage.getItem("usuarioParaReset");
+    const nuevaContrasena = document.getElementById("nueva-contrasena").value;
+    const msg = document.getElementById("msg");
+
+    if (!usuario) {
+        msg.textContent = "No se encontró el usuario.";
+        return;
+    }
+
+    if (nuevaContrasena.trim() === "") {
+        msg.textContent = "Por favor, ingresa una nueva contraseña.";
+    } else {
+        localStorage.setItem(usuario, nuevaContrasena); // Actualiza la contraseña
+        msg.textContent = "Tu contraseña ha sido restablecida con éxito.";
+    }
+}
 
